@@ -1,0 +1,385 @@
+{
+	"info": {
+		"_postman_id": "81197e80-4e64-4d0b-ab56-aada42a306e2",
+		"name": "WebMotors Challenge",
+		"description": "# Sample of tests for the WebMotors new release!\n\n## API Consumption:\n\nProperty            | Value\n------------------- | ------------------\n*Accepted Protocols*| http\n*Server Port*       | 80\n*Domain*            | desafioonline.webmotors.com.br\n*API Path*          | [/api/OnlineChallenge](#)\n\n## Documents Summary:\n\n - [Challenge Document](http://desafioonline.webmotors.com.br/Content/docs/QA8811.pdf)\n\n - [API Documentation](http://desafioonline.webmotors.com.br/swagger/ui/index#!/OnlineChallenge)\n\n---\n\n## Examples Links:\n\n - [Home Page](https://www.webmotors.com.br/)\n\n - [Search Results](https://www.webmotors.com.br/carros/estoque?tipoveiculo=carros&estadocidade=estoque)\n\n - [Store's Stock](https://www.webmotors.com.br/carros/estoque/?IdRevendedor=3834764&TipoVeiculo=carros&anunciante=concession%C3%A1ria%7Cloja)\n\n---\n\n## Test Data:\n\n - Brand: Honda\n\n - Model: City\n\n---\n\n## Test BDD:\n\n#### Feature: Filter vehicles on the search page by brand, model, or version\n\n#### Scenario: The client filters vehicles results on the search page\n>    Given a client who wants to find one or more vehicles\n\n>    When the client search by his brand, model, or version\n\n>    Then the site will list all the vehicles that match with searched parameters\n\n---\n\n#### Feature: List vehicle's stock from a store\n\n#### Scenario: The client sees the vehicle's stock from a store.\n>    Given a client who wants to see the vehicle's stock from a store\n\n>    When the client click on \"See all cars from this seller\"\n\n>    Then the site will list all the vehicle's in stock from this store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "filter vehicles on search page",
+			"item": [
+				{
+					"name": "list brands",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status/200",
+									"const EXPECTED_STATUS_CODE = 200;",
+									"",
+									"pm.test(`Status code is ${EXPECTED_STATUS_CODE}`, () => {",
+									"    pm.response.to.have.status(",
+									"        EXPECTED_STATUS_CODE",
+									"    );",
+									"});",
+									"",
+									"pm.test(\"Response body schema is the expected\", () => {",
+									"    pm.response.to.have.jsonSchema({",
+									"        type: 'array',",
+									"        uniqueItems: true,",
+									"        items: {",
+									"            type: 'object',",
+									"            additionalProperties: false,",
+									"            required: [",
+									"                'ID',",
+									"                'Name'",
+									"            ],",
+									"            properties: {",
+									"                'ID': { type: 'integer' },",
+									"                'Name': { type: 'string' }",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									"",
+									"pm.test('Find and store iteration expected brand', () => {",
+									"    const expectedBrandName = pm.iterationData.get('expectedBrand') || 'Honda';",
+									"    const responseBody = pm.response.json();",
+									"",
+									"    const brandFinderCallback = brand => brand['Name'] === expectedBrandName;",
+									"",
+									"    const expectedBrand = responseBody.find(brandFinderCallback);",
+									"    pm.expect(expectedBrand, 'Brand not found').to.not.be.undefined",
+									"",
+									"    const id = expectedBrand['ID'];",
+									"    pm.collectionVariables.set('makeID', id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{domain}}/{{apiPath}}/Make",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"{{apiPath}}",
+								"Make"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter model by selected brand",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status/200",
+									"const EXPECTED_STATUS_CODE = 200;",
+									"",
+									"pm.test(`Status code is ${EXPECTED_STATUS_CODE}`, () => {",
+									"    pm.response.to.have.status(",
+									"        EXPECTED_STATUS_CODE",
+									"    );",
+									"});",
+									"",
+									"pm.test(\"Response body schema is the expected\", () => {",
+									"    pm.response.to.have.jsonSchema({",
+									"        type: 'array',",
+									"        uniqueItems: true,",
+									"        items: {",
+									"            type: 'object',",
+									"            additionalProperties: false,",
+									"            required: [",
+									"                'MakeID',",
+									"                'ID',",
+									"                'Name'",
+									"            ],",
+									"            properties: {",
+									"                'MakeID': { type: 'integer' },",
+									"                'ID': { type: 'integer' },",
+									"                'Name': { type: 'string' }",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									"",
+									"pm.test('Assert all returned models is from searched brand', () => {",
+									"    const responseBody = pm.response.json();",
+									"    const makeID = pm.collectionVariables.get('makeID');",
+									"",
+									"    const modelHasExpectedMakeIDCallback = model => model['MakeID'] === makeID;",
+									"    const allMakeIDsIsTheExpected = responseBody.every(modelHasExpectedMakeIDCallback);",
+									"",
+									"    pm.expect(allMakeIDsIsTheExpected, 'Found models from not expected brands').to.be.true;",
+									"});",
+									"",
+									"pm.test('Find and store iteration expected model', () => {",
+									"    const expectedModelName = pm.iterationData.get('expectedModel') || 'City';",
+									"    const responseBody = pm.response.json();",
+									"",
+									"    const modelFinderCallback = model => model['Name'] === expectedModelName;",
+									"",
+									"    const expectedModel = responseBody.find(modelFinderCallback);",
+									"    pm.expect(expectedModel, 'Model not found').to.not.be.undefined",
+									"",
+									"    const id = expectedModel['ID'];",
+									"    pm.collectionVariables.set('modelID', id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{domain}}/{{apiPath}}/Model?MakeID={{makeID}}",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"{{apiPath}}",
+								"Model"
+							],
+							"query": [
+								{
+									"key": "MakeID",
+									"value": "{{makeID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list versions by selected brand",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status/200",
+									"const EXPECTED_STATUS_CODE = 200;",
+									"",
+									"pm.test(`Status code is ${EXPECTED_STATUS_CODE}`, () => {",
+									"    pm.response.to.have.status(",
+									"        EXPECTED_STATUS_CODE",
+									"    );",
+									"});",
+									"",
+									"pm.test(\"Response body schema is the expected\", () => {",
+									"    pm.response.to.have.jsonSchema({",
+									"        type: 'array',",
+									"        uniqueItems: true,",
+									"        items: {",
+									"            type: 'object',",
+									"            additionalProperties: false,",
+									"            required: [",
+									"                'ModelID',",
+									"                'ID',",
+									"                'Name'",
+									"            ],",
+									"            properties: {",
+									"                'ModelID': { type: 'integer' },",
+									"                'ID': { type: 'integer' },",
+									"                'Name': { type: 'string' }",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									"",
+									"pm.test('Assert all returned versions is from searched model', () => {",
+									"    const responseBody = pm.response.json();",
+									"    const modelID = pm.collectionVariables.get('modelID');",
+									"",
+									"    const versionHasExpectedModelIDCallback = version => version['ModelID'] === modelID;",
+									"    const allModelIDsIsTheExpected = responseBody.every(versionHasExpectedModelIDCallback);",
+									"",
+									"    pm.expect(allModelIDsIsTheExpected, 'Found versions from not expected models').to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{domain}}/{{apiPath}}/Version?ModelID={{modelID}}",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"{{apiPath}}",
+								"Version"
+							],
+							"query": [
+								{
+									"key": "ModelID",
+									"value": "{{modelID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "list vehicles",
+			"item": [
+				{
+					"name": "paginated list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status/200",
+									"const EXPECTED_STATUS_CODE = 200;",
+									"",
+									"pm.test(`Status code is ${EXPECTED_STATUS_CODE}`, () => {",
+									"    pm.response.to.have.status(",
+									"        EXPECTED_STATUS_CODE",
+									"    );",
+									"});",
+									"",
+									"pm.test(\"Response body schema is the expected\", () => {",
+									"    pm.response.to.have.jsonSchema({",
+									"        type: 'array',",
+									"        uniqueItem: false,",
+									"        items: {",
+									"            type: 'object',",
+									"            additionalProperties: false,",
+									"            required: [",
+									"                'ID',",
+									"                'Make',",
+									"                'Model',",
+									"                'Version',",
+									"                'Image',",
+									"                'KM',",
+									"                'Price',",
+									"                'YearModel',",
+									"                'YearFab',",
+									"                'Color'",
+									"            ],",
+									"            properties: {",
+									"                'ID': { type: 'integer' },",
+									"                'Make': { type: 'string' },",
+									"                'Model': { type: 'string' },",
+									"                'Version': { type: 'string' },",
+									"                'Image': {",
+									"                    type: 'string',",
+									"                    format: 'url'",
+									"                },",
+									"                'KM': { type: 'integer' },",
+									"                'Price': { ",
+									"                    type: 'string',",
+									"                    pattern: '^\\\\d{4,10},\\\\d{2}$'",
+									"                },",
+									"                'YearModel': { type: 'integer' },",
+									"                'YearFab': { type: 'integer' },",
+									"                'Color': { type: 'string' }",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									"",
+									"const page = pm.collectionVariables.get('page');",
+									"",
+									"pm.test(`Open next page - Current Page: ${page}`, () => {",
+									"    const responseBody = pm.response.json();",
+									"    if (responseBody.length == 10) {",
+									"        pm.collectionVariables.set('page', Number(page) + 1);",
+									"        postman.setNextRequest(\"paginated list\");",
+									"    } else {",
+									"        // reset to default value - dont needed",
+									"        pm.collectionVariables.set('page', 1);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{domain}}/{{apiPath}}/Vehicles?Page={{page}}",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"{{apiPath}}",
+								"Vehicles"
+							],
+							"query": [
+								{
+									"key": "Page",
+									"value": "{{page}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "protocol",
+			"value": "http"
+		},
+		{
+			"key": "domain",
+			"value": "desafioonline.webmotors.com.br"
+		},
+		{
+			"key": "apiPath",
+			"value": "api/OnlineChallenge"
+		},
+		{
+			"key": "page",
+			"value": 1
+		}
+	]
+}

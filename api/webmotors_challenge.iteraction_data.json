@@ -1,0 +1,34 @@
+[
+  {
+    "expectedBrand": "Chevrolet",
+    "expectedModel": "Agile"
+  },
+  {
+    "expectedBrand": "Chevrolet",
+    "expectedModel": "Astra"
+  },
+  {
+    "expectedBrand": "Chevrolet",
+    "expectedModel": "Onix"
+  },
+  {
+    "expectedBrand": "Honda",
+    "expectedModel": "City"
+  },
+  {
+    "expectedBrand": "Honda",
+    "expectedModel": "CRV"
+  },
+  {
+    "expectedBrand": "Honda",
+    "expectedModel": "Fit"
+  },
+  {
+    "expectedBrand": "Ford",
+    "expectedModel": "Ecosport"
+  },
+  {
+    "expectedBrand": "Ford",
+    "expectedModel": "Fussion"
+  }
+]

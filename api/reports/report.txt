@@ -1,0 +1,384 @@
+newman
+
+WebMotors Challenge
+Using htmlextra version 1.20.1
+
+Iteration 1/8
+
+❏ filter vehicles on search page
+↳ list brands
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make [200 OK, 321B, 504ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Find and store iteration expected brand
+
+↳ filter model by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=1 [200 OK, 364B, 217ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned models is from searched brand
+  ✓  Find and store iteration expected model
+
+↳ list versions by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=1 [200 OK, 587B, 271ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned versions is from searched model
+
+❏ list vehicles
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1 [200 OK, 2.52KB, 270ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 1
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=2 [200 OK, 2.5KB, 186ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 2
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=3 [200 OK, 494B, 239ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 3
+
+Iteration 2/8
+
+❏ filter vehicles on search page
+↳ list brands
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make [200 OK, 321B, 185ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Find and store iteration expected brand
+
+↳ filter model by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=1 [200 OK, 351B, 187ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned models is from searched brand
+  ✓  Find and store iteration expected model
+
+↳ list versions by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=2 [200 OK, 507B, 199ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned versions is from searched model
+
+❏ list vehicles
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1 [200 OK, 2.51KB, 184ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 1
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=2 [200 OK, 2.5KB, 285ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 2
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=3 [200 OK, 481B, 274ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 3
+
+Iteration 3/8
+
+❏ filter vehicles on search page
+↳ list brands
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make [200 OK, 334B, 273ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Find and store iteration expected brand
+
+↳ filter model by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=1 [200 OK, 351B, 185ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned models is from searched brand
+  ✓  Find and store iteration expected model
+
+↳ list versions by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=3 [200 OK, 531B, 185ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned versions is from searched model
+
+❏ list vehicles
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1 [200 OK, 2.51KB, 243ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 1
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=2 [200 OK, 2.5KB, 183ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 2
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=3 [200 OK, 481B, 185ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 3
+
+Iteration 4/8
+
+❏ filter vehicles on search page
+↳ list brands
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make [200 OK, 321B, 182ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Find and store iteration expected brand
+
+↳ filter model by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=2 [200 OK, 347B, 236ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned models is from searched brand
+  ✓  Find and store iteration expected model
+
+↳ list versions by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=4 [200 OK, 516B, 277ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned versions is from searched model
+
+❏ list vehicles
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1 [200 OK, 2.51KB, 276ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 1
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=2 [200 OK, 2.5KB, 273ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 2
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=3 [200 OK, 494B, 271ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 3
+
+Iteration 5/8
+
+❏ filter vehicles on search page
+↳ list brands
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make [200 OK, 321B, 183ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Find and store iteration expected brand
+
+↳ filter model by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=2 [200 OK, 360B, 192ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned models is from searched brand
+  ✓  Find and store iteration expected model
+
+↳ list versions by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=5 [200 OK, 521B, 184ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned versions is from searched model
+
+❏ list vehicles
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1 [200 OK, 2.52KB, 241ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 1
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=2 [200 OK, 2.51KB, 277ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 2
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=3 [200 OK, 494B, 275ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 3
+
+Iteration 6/8
+
+❏ filter vehicles on search page
+↳ list brands
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make [200 OK, 334B, 279ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Find and store iteration expected brand
+
+↳ filter model by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=2 [200 OK, 360B, 233ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned models is from searched brand
+  ✓  Find and store iteration expected model
+
+↳ list versions by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=6 [200 OK, 591B, 219ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned versions is from searched model
+
+❏ list vehicles
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1 [200 OK, 2.51KB, 279ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 1
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=2 [200 OK, 2.51KB, 278ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 2
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=3 [200 OK, 494B, 183ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 3
+
+Iteration 7/8
+
+❏ filter vehicles on search page
+↳ list brands
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make [200 OK, 321B, 268ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Find and store iteration expected brand
+
+↳ filter model by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=3 [200 OK, 334B, 279ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned models is from searched brand
+  ✓  Find and store iteration expected model
+
+↳ list versions by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=7 [200 OK, 591B, 278ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned versions is from searched model
+
+❏ list vehicles
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1 [200 OK, 2.52KB, 192ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 1
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=2 [200 OK, 2.51KB, 263ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 2
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=3 [200 OK, 494B, 277ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 3
+
+Iteration 8/8
+
+❏ filter vehicles on search page
+↳ list brands
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make [200 OK, 334B, 280ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Find and store iteration expected brand
+
+↳ filter model by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=3 [200 OK, 321B, 280ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned models is from searched brand
+  ✓  Find and store iteration expected model
+
+↳ list versions by selected brand
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=8 [200 OK, 591B, 284ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Assert all returned versions is from searched model
+
+❏ list vehicles
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1 [200 OK, 2.51KB, 212ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 1
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=2 [200 OK, 2.51KB, 185ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 2
+
+Attempting to set next request to paginated list
+
+↳ paginated list
+  GET http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=3 [200 OK, 481B, 182ms]
+  ✓  Status code is 200
+  ✓  Response body schema is the expected
+  ✓  Open next page - Current Page: 3
+
+┌─────────────────────────┬────────────────────┬────────────────────┐
+│                         │           executed │             failed │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              iterations │                  8 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│                requests │                 48 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│            test-scripts │                 96 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│      prerequest-scripts │                 48 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              assertions │                152 │                  0 │
+├─────────────────────────┴────────────────────┴────────────────────┤
+│ total run duration: 13.1s                                         │
+├───────────────────────────────────────────────────────────────────┤
+│ total data received: 41.71KB (approx)                             │
+├───────────────────────────────────────────────────────────────────┤
+│ average response time: 241ms [min: 182ms, max: 504ms, s.d.: 55ms] │
+└───────────────────────────────────────────────────────────────────┘

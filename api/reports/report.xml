@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="WebMotors Challenge" tests="48" time="11.573">
+  <testsuite name="filter vehicles on search page / list brands" id="d58c37d1-4a68-49f0-ab88-fd599e5f1daa" timestamp="2021-02-04T05:00:18.696Z" tests="3" failures="0" errors="0" time="0.269">
+    <testcase name="Status code is 200" time="0.280" classname="WebMotorsChallenge"/>
+    <testcase name="Response body schema is the expected" time="0.280" classname="WebMotorsChallenge"/>
+    <testcase name="Find and store iteration expected brand" time="0.280" classname="WebMotorsChallenge"/>
+  </testsuite>
+  <testsuite name="filter vehicles on search page / filter model by selected brand" id="4408de9b-2c5c-40df-a327-ffebd7ed0f24" timestamp="2021-02-04T05:00:18.696Z" tests="4" failures="0" errors="0" time="0.226">
+    <testcase name="Status code is 200" time="0.280" classname="WebMotorsChallenge"/>
+    <testcase name="Response body schema is the expected" time="0.280" classname="WebMotorsChallenge"/>
+    <testcase name="Assert all returned models is from searched brand" time="0.280" classname="WebMotorsChallenge"/>
+    <testcase name="Find and store iteration expected model" time="0.280" classname="WebMotorsChallenge"/>
+  </testsuite>
+  <testsuite name="filter vehicles on search page / list versions by selected brand" id="4f8812e8-c91d-4cc7-b38e-f4ddf9cea79a" timestamp="2021-02-04T05:00:18.696Z" tests="3" failures="0" errors="0" time="0.237">
+    <testcase name="Status code is 200" time="0.284" classname="WebMotorsChallenge"/>
+    <testcase name="Response body schema is the expected" time="0.284" classname="WebMotorsChallenge"/>
+    <testcase name="Assert all returned versions is from searched model" time="0.284" classname="WebMotorsChallenge"/>
+  </testsuite>
+  <testsuite name="list vehicles / paginated list" id="c80aeaa0-b631-433f-88d7-c368d449f018" timestamp="2021-02-04T05:00:18.696Z" tests="3" failures="0" errors="0" time="0.238">
+    <testcase name="Status code is 200" time="0.182" classname="WebMotorsChallenge"/>
+    <testcase name="Response body schema is the expected" time="0.182" classname="WebMotorsChallenge"/>
+    <testcase name="Open next page - Current Page: 1" time="0.182" classname="WebMotorsChallenge"/>
+    <testcase name="Open next page - Current Page: 2" time="0.182" classname="WebMotorsChallenge"/>
+    <testcase name="Open next page - Current Page: 3" time="0.182" classname="WebMotorsChallenge"/>
+  </testsuite>
+</testsuites>
