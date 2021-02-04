@@ -29,7 +29,7 @@ foo$ npm run test
 
 - <h3 style="color:dark-purple">Test Report</h3>
 
-  The tests results will be exported in [/api/reports](https://www.github.com/DiogoJunqueiraGeraldo/WebMotorsChallenge/master/api/reports) folder
+  The tests results will be exported in [reports](https://github.com/DiogoJunqueiraGeraldo/WebMotorsChallenge/tree/master/api/reports) folder
 
   HTML Extra report Example:
 
