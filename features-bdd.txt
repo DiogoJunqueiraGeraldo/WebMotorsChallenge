@@ -1,0 +1,13 @@
+Feature: Filter vehicles on the search page by brand, model, or version
+
+Scenario: The client filters vehicles results on the search page
+    Given a client who wants to find one or more vehicles
+    When the client search by his brand, model, or version
+    Then the site will list all the vehicles that match with searched parameters
+
+Feature: List vehicle's stock from a store
+
+Scenario: The client sees the vehicle's stock from a store.
+    Given a client who wants to see the vehicle's stock from a store
+    When the client click on "See all cars from this seller"
+    Then the site will list all the vehicle's in stock from this store
