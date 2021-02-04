@@ -8,18 +8,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class SearchPagePO {
     public static final String url = "https://www.webmotors.com.br/carros/estoque?idcmpint=t1:c17:m07:webmotors:busca::verofertas";
     private WebDriver driver;
     private WebDriverWait wait;
-    private Actions actions;
 
-    public SearchPagePO(WebDriver _driver, WebDriverWait _wait, Actions _actions) {
+    public SearchPagePO(WebDriver _driver, WebDriverWait _wait) {
         this.driver = _driver;
         this.wait = _wait;
-        this.actions = _actions;
     }
 
     public void navigateToPage() {
@@ -32,6 +31,19 @@ public class SearchPagePO {
         WebElement element = driver.findElement(locator);
 
         element.click();
+    }
+
+    public void scrollDownToSellerFilter() {
+        // Scroll Down to a bottom element
+        By locator = By.xpath("//div[text()='Opcionais']");
+        WebElement element = driver.findElement(locator);
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        actions.perform();
+
+        // @Todo(Diogo Junqueira Geraldo) Improve animations with wait.until
+        Sleep.seconds(1);
     }
 
     public void clickOnBrandButton(String brand) {
@@ -76,6 +88,30 @@ public class SearchPagePO {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
 
+        WebElement element = driver.findElement(locator);
+
+        element.click();
+
+        // @Todo(Diogo Junqueira Geraldo): Talk to web developer and understand how to wait for the load.
+        Sleep.seconds(5);
+    }
+
+
+    public void clickOnFilterBySellers() {
+        By locator = By.xpath("//label[text()='Loja']");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+
+        WebElement element = driver.findElement(locator);
+        element.click();
+
+        // @Todo(Diogo Junqueira Geraldo): Talk to web developer and understand how to wait for the load.
+        Sleep.seconds(5);
+    }
+
+    public void clickOnFirstResult() {
+        By locator = By.xpath("//div[@class='sc-TOsTZ cgVgKJ']");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         WebElement element = driver.findElement(locator);
 
         element.click();

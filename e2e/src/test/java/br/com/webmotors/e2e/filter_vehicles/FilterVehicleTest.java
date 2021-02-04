@@ -3,15 +3,11 @@ package br.com.webmotors.e2e.filter_vehicles;
 import br.com.webmotors.po.SearchPagePO;
 import static org.junit.Assert.*;
 
-import br.com.webmotors.util.Sleep;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.Properties;
 
 public class FilterVehicleTest {
     private static final int TIMEOUT_IN_SECONDS = 60;
@@ -23,8 +19,8 @@ public class FilterVehicleTest {
     public static void setup() {
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         wait = new WebDriverWait(driver, TIMEOUT_IN_SECONDS);
-        actions = new Actions(driver);
     }
 
     @Test
@@ -32,7 +28,7 @@ public class FilterVehicleTest {
         String brand = "Honda";
         String model = "City";
 
-        SearchPagePO searchPagePO = new SearchPagePO(driver, wait, actions);
+        SearchPagePO searchPagePO = new SearchPagePO(driver, wait);
         searchPagePO.navigateToPage();
         searchPagePO.acceptCoockies();
         searchPagePO.clickOnBrandButton(brand);
