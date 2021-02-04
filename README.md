@@ -51,7 +51,7 @@ foo$ npm run test
 
 <h2 style="color:#45103e">Run e2e Tests</h2>
 
-You just jave to import the [e2e](https://www.github.com/DiogoJunqueiraGeraldo/WebMotorsChallenge/master/e2e) folder as a Maven Project
+You just jave to import the [e2e](https://github.com/DiogoJunqueiraGeraldo/WebMotorsChallenge/tree/master/e2e) folder as a Maven Project
 
 - <h3 style="color:#45103e">Dependencies</h3>
 
