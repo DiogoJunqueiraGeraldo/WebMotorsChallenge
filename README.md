@@ -63,4 +63,4 @@ You just jave to import the [e2e](https://www.github.com/DiogoJunqueiraGeraldo/W
 
   - Execute "Run All Tests" on maven project
 
-  - [Download The Example Video!](https://www.github.com/DiogoJunqueiraGeraldo/WebMotorsChallenge/master/screenshots/e2e.testvideo.mov)
+  - [Download The Example Video!](https://github.com/DiogoJunqueiraGeraldo/WebMotorsChallenge/raw/master/screenshots/e2e.testvideo.mov)
