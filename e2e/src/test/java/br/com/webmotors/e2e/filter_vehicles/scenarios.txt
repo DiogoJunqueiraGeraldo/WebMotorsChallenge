@@ -1,0 +1,4 @@
+Scenario: The client filters vehicles results on the search page
+    Given a client who wants to find one or more vehicles
+    When the client search by his brand, model, or version
+    Then the site will list all the vehicles that match with searched parameters
